@@ -488,7 +488,8 @@
                     text: "คำเตือน เมื่อข้อมูลถูกลบ จะไม่สามารถเรียกคืนได้!",
                     type: "warning",
                     showCancelButton: true,
-                    confirmButtonClass: "btn-danger",
+                    //confirmButtonClass: "btn-danger",
+                    confirmButtonColor: "#DD6B55",
                     confirmButtonText: "ยืนยัน, ลบเดี่ยวนี้",
                     cancelButtonText: "ยกเลิก",
                     closeOnConfirm: false

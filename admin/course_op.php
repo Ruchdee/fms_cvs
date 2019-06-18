@@ -38,13 +38,13 @@
 
     //u = update
     if (isset($_GET['action']) && $_GET['action'] == 'u') {
-        $course->course_id = $_POST['course-id'];
-        $course->course_code = $_POST['course-code'];
-        $course->course_name_th = $_POST['course-name-th'];
-        $course->course_name_en = $_POST['course-name-en'];
-        $course->major_id = $_POST['major-id'];
-        $course->course_credit = $_POST['course-credit'];
-        if (isset($_POST['course-status'])) {
+        $course->course_id = $_POST['course-id-update'];
+        $course->course_code = $_POST['course-code-update'];
+        $course->course_name_th = $_POST['course-name-th-update'];
+        $course->course_name_en = $_POST['course-name-en-update'];
+        $course->major_id = $_POST['major-id-update'];
+        $course->course_credit = $_POST['course-credit-update'];
+        if (isset($_POST['course-status-update'])) {
             $course->course_status = 1;
         } else {
             $course->course_status = 0;

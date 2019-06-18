@@ -21,18 +21,18 @@
 ?>
 <div class="row clearfix">
     <div class="col-md-6">
-        <input type="hidden" id="course-id" name="course-id" value="<?php echo $_POST['course_id']; ?>">
-        <label for="course-code">รหัสวิชา</label>
+        <input type="hidden" id="course-id-update" name="course-id-update" value="<?php echo $_POST['course_id']; ?>">
+        <label for="course-code-update">รหัสวิชา</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="course-code" name="course-code" class="form-control" placeholder="เช่น 460-107, 477-301" required
+                <input type="text" id="course-code-update" name="course-code-update" class="form-control" placeholder="เช่น 460-107, 477-301" required
                     maxlength="10" value="<?php echo $row_update['course_code']; ?>">
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <label for="major-id">สาขาวิชา</label>
-        <select id="major-id" name="major-id" class="form-control show-tick" required>
+        <label for="major-id-update">สาขาวิชา</label>
+        <select id="major-id-update" name="major-id-update" class="form-control show-tick" required>
             <option value="">-- Please select --</option>
             <?php 
                 $active_major = true;
@@ -50,38 +50,45 @@
 </div>
 <div class="row clearfix">
     <div class="col-md-6">
-        <label for="course-name-th">ชื่อวิชา (ไทย)</label>
+        <label for="course-name-th-update">ชื่อวิชา (ไทย)</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="course-name-th" name="course-name-th" class="form-control" placeholder="" required maxlength="100" value="<?php echo $row_update['course_name_th']; ?>">
+                <input type="text" id="course-name-th-update" name="course-name-th-update" class="form-control" placeholder="" required maxlength="100" value="<?php echo $row_update['course_name_th']; ?>">
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <label for="course-name-en">ชื่อวิชา (Eng)</label>
+        <label for="course-name-en-update">ชื่อวิชา (Eng)</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="course-name-en" name="course-name-en" class="form-control" placeholder="" maxlength="100" value="<?php echo $row_update['course_name_en']; ?>">
+                <input type="text" id="course-name-en-update" name="course-name-en-update" class="form-control" placeholder="" maxlength="100" value="<?php echo $row_update['course_name_en']; ?>">
             </div>
         </div>
     </div>
 </div>
 <div class="row clearfix">
     <div class="col-md-3">
-        <label for="course-credit">หน่วยกิต</label>
+        <label for="course-credit-update">หน่วยกิต</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="number" id="course-credit" name="course-credit" class="form-control" placeholder="" value="<?php echo $row_update['course_credit']; ?>">
+                <input type="number" id="course-credit-update" name="course-credit-update" class="form-control" placeholder="" value="<?php echo $row_update['course_credit']; ?>">
             </div>
         </div>
     </div>
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        <label for="course-status">สถานะการใช้งาน</label>
+        <label for="course-status-update">สถานะการใช้งาน</label>
         <div class="demo-switch">
             <div class="switch">
-                <label>ยกเลิก<input type="checkbox" id="course-status" name="course-status" <?php if ($row_update['course_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
+                <label>ยกเลิก<input type="checkbox" id="course-status-update" name="course-status-update" <?php if ($row_update['course_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        //refresh all select elements
+        $("#major-id-update").selectpicker("refresh");
+    });
+</script>

@@ -164,6 +164,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="lecturer.php">
+                            <i class="material-icons">people</i>
+                            <span>อาจารย์ผู้สอน (Lecturer)</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="elo_list.php">
                             <i class="material-icons">widgets</i>
                             <span>ผลการเรียนรู้ (ELOs)</span>

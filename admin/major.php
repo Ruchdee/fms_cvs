@@ -170,6 +170,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="lecturer.php">
+                            <i class="material-icons">people</i>
+                            <span>อาจารย์ผู้สอน (Lecturer)</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="elo_list.php">
                             <i class="material-icons">widgets</i>
                             <span>ผลการเรียนรู้ (ELOs)</span>
@@ -454,7 +460,8 @@
                     text: "คำเตือน เมื่อข้อมูลถูกลบ จะไม่สามารถเรียกคืนได้!",
                     type: "warning",
                     showCancelButton: true,
-                    confirmButtonClass: "btn-danger",
+                    //confirmButtonClass: "btn-danger",
+                    confirmButtonColor: "#DD6B55",
                     confirmButtonText: "ยืนยัน, ลบเดี่ยวนี้",
                     cancelButtonText: "ยกเลิก",
                     closeOnConfirm: false

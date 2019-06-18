@@ -36,11 +36,11 @@
 
     //u = update
     if (isset($_GET['action']) && $_GET['action'] == 'u') {
-        $elo->elo_id = $_POST['elo-id'];
-        $elo->elo_desc = $_POST['elo-desc'];
-        $elo->elo_type = $_POST['elo-type'];
-        $elo->major_id = $_POST['major-id'];
-        if (isset($_POST['elo-status'])) {
+        $elo->elo_id = $_POST['elo-id-update'];
+        $elo->elo_desc = $_POST['elo-desc-update'];
+        $elo->elo_type = $_POST['elo-type-update'];
+        $elo->major_id = $_POST['major-id-update'];
+        if (isset($_POST['elo-status-update'])) {
             $elo->elo_status = 1;
         } else {
             $elo->elo_status = 0;
