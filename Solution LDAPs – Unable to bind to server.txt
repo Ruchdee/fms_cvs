@@ -1,0 +1,25 @@
+Solution: LDAPs � Unable to bind to server: Can�t contact LDAP server
+Posted on September 24, 2015 by Sander	� 3 Comments 
+Last week I encountered the following error message: Warning: ldap_bind(): Unable to bind to server: Can't contact LDAP server in C:\xamppNew\htdocs\index.php on line 11
+
+To create a AD user you must to connect to the LDAP via securely (SSL). Usually you can achieve this in PHP by connecting through LDAP like this: ldap_connect("ldaps://<host>", 636);  , watch the �s� at the end of LDAP. This indicates you want to connect through SSL. After binding ( ldap_bind($connection, $user, $password); ) I received the error message above.
+
+I was 100% sure the LDAP server was not the cause of this, because it was working when I did the same in C#. After doing a lot of research on the internet I finally found a (working) solution. I tested this solution on Windows and Ubuntu and they are working fine.
+
+Windows:
+
+1.Create the follwing directory, usually this directory doesn't exist (yet): C:\OpenLDAP\sysconf
+2.In C:\OpenLDAP\sysconf create a file called �ldap.conf�.
+3.Add "TLS_REQCERT never" (without quotes) at the end of the file you just created.
+4.Restart your Apache server.
+
+Ubuntu:
+
+1.Navigate to /etc/ldap/
+2.Open the file ldap.conf
+3.Add "TLS_REQCERT never" (without quotes) at the end of the file.
+4.Restart your Apache server.
+
+According to the manual, "TLS_REQCERT never" prevents the server from requesting and/or checking any server certificate.
+
+Happy coding!
