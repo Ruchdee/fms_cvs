@@ -21,16 +21,16 @@
 ?>
 <div class="row clearfix">
     <div class="col-md-6">
-        <label for="major-id">รหัสสาขาวิชา</label>
+        <label for="major-id-update">รหัสสาขาวิชา</label>
         <div class="form-group">
             <div class="form-line disabled">
-                <input type="text" id="major-id" name="major-id" class="form-control" placeholder="เช่น FMS-BA-MK, BA-HRM-60" maxlength="15" required value="<?php echo $row_update['major_id']; ?>" readonly>
+                <input type="text" id="major-id-update" name="major-id-update" class="form-control" placeholder="เช่น FMS-BA-MK, BA-HRM-60" maxlength="15" required value="<?php echo $row_update['major_id']; ?>" readonly>
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <label for="dept-id">ภาควิชา</label>
-        <select id="dept-id" name="dept-id" class="form-control show-tick" required>
+        <label for="dept-id-update">ภาควิชา</label>
+        <select id="dept-id-update" name="dept-id-update" class="form-control show-tick" required>
             <option value="">-- Please select --</option>
             <?php 
                 $active_dept = true;
@@ -48,25 +48,32 @@
 </div>
 <div class="row clearfix">
     <div class="col-md-6">
-        <label for="major-name-th">ชื่อสาขาวิชา (ไทย)</label>
+        <label for="major-name-th-update">ชื่อสาขาวิชา (ไทย)</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="major-name-th" name="major-name-th" class="form-control" placeholder="" required maxlength="100" value="<?php echo $row_update['major_name_th']; ?>">
+                <input type="text" id="major-name-th-update" name="major-name-th-update" class="form-control" placeholder="" required maxlength="100" value="<?php echo $row_update['major_name_th']; ?>">
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <label for="major-name-en">ชื่อสาขาวิชา (Eng)</label>
+        <label for="major-name-en-update">ชื่อสาขาวิชา (Eng)</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="major-name-en" name="major-name-en" class="form-control" placeholder="" maxlength="100" value="<?php echo $row_update['major_name_en']; ?>">
+                <input type="text" id="major-name-en-update" name="major-name-en-update" class="form-control" placeholder="" maxlength="100" value="<?php echo $row_update['major_name_en']; ?>">
             </div>
         </div>
     </div>
 </div>
-<label for="major-status">สถานะการใช้งาน</label>
+<label for="major-status-update">สถานะการใช้งาน</label>
 <div class="demo-switch">
     <div class="switch">
-        <label>ยกเลิก<input type="checkbox" id="major-status" name="major-status" <?php if ($row_update['major_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
+        <label>ยกเลิก<input type="checkbox" id="major-status-update" name="major-status-update" <?php if ($row_update['major_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        //refresh all select elements
+        $("#dept-id-update").selectpicker("refresh");
+    });
+</script>

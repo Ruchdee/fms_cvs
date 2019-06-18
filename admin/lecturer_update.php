@@ -116,7 +116,7 @@
         <label for="lecturer-status">สถานะการใช้งาน</label>
         <div class="demo-switch">
             <div class="switch">
-                <label>ยกเลิก<input type="checkbox" id="lecturer-status" name="lecturer-status" checked><span class="lever"></span>ใช้งาน</label>
+                <label>ยกเลิก<input type="checkbox" id="lecturer-status-update" name="lecturer-status-update" <?php if ($row_update['lecturer_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
             </div>
         </div>
     </div>
@@ -125,10 +125,28 @@
 
 <script>
     $(document).ready(function(){
+        //refresh all select elements
         $("#title-th-update").selectpicker("refresh");
         $("#title-en-update").selectpicker("refresh");
         $("#dept-id-update").selectpicker("refresh");
-        $("#major-id-update").selectpicker("refresh");
+        //$("#major-id-update").selectpicker("refresh");
+        
+        //get dept_id value 
+        var dept_id = $("#dept-id-update").val();    
+        //console.log(dept_id);
+        $.ajax({
+            type: 'POST',
+            url: 'lecturer_major.php',
+            data: 'dept_id='+dept_id,
+            dataType: 'html',
+            success: function(results) {
+                //console.log(results);
+                $("#major-id-update").html('');
+                $("#major-id-update").html(results);
+                $("#major-id-update").val("<?php echo $row_update['major_id']; ?>");
+                $("#major-id-update").selectpicker("refresh");
+            }
+        });
         //change major options when department is changed
         $(document).on('change', '#dept-id-update', function(e){
             e.preventDefault();

@@ -19,19 +19,19 @@
 
 <div class="row clearfix">
     <div class="col-md-12">
-        <input type="hidden" id="elo-id" name="elo-id" value="<?php echo $_POST['elo_id']; ?>">
-        <label for="elo-desc">ผลการเรียนรู้</label>
+        <input type="hidden" id="elo-id-update" name="elo-id-update" value="<?php echo $_POST['elo_id']; ?>">
+        <label for="elo-desc-update">ผลการเรียนรู้</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="elo-desc" name="elo-desc" class="form-control" placeholder="" required maxlength="200" value="<?php echo $row_update['elo_desc']; ?>">
+                <input type="text" id="elo-desc-update" name="elo-desc-update" class="form-control" placeholder="" required maxlength="200" value="<?php echo $row_update['elo_desc']; ?>">
             </div>
         </div>
     </div>
 </div>
 <div class="row clearfix">
     <div class="col-md-12">
-        <label for="elo-type">ประเภทผลการเรียนรู้</label>
-        <select class="form-control show-tick" id="elo-type" name="elo-type" required>
+        <label for="elo-type-update">ประเภทผลการเรียนรู้</label>
+        <select class="form-control show-tick" id="elo-type-update" name="elo-type-update" required>
             <option value="">-- Please select --</option>
             <option value="1" <?php if ($row_update['elo_type'] == '1') { echo 'selected'; } ?>>ด้านคุณธรรม จริยธรรม</option>
             <option value="2" <?php if ($row_update['elo_type'] == '2') { echo 'selected'; } ?>>ด้านความรู้</option>
@@ -44,8 +44,8 @@
 <br>
 <div class="row clearfix">
     <div class="col-md-6">
-        <label for="major-id">สาขาวิชา</label>
-        <select id="major-id" name="major-id" class="form-control show-tick" required>
+        <label for="major-id-update">สาขาวิชา</label>
+        <select id="major-id-update" name="major-id-update" class="form-control show-tick" required>
             <option value="">-- Please select --</option>
             <?php 
                 $active_major = true;
@@ -61,11 +61,20 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="elo-status">สถานะการใช้งาน</label>
+        <label for="elo-status-update">สถานะการใช้งาน</label>
         <div class="demo-switch">
             <div class="switch">
-                <label>ยกเลิก<input type="checkbox" id="elo-status" name="elo-status" <?php if ($row_update['elo_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
+                <label>ยกเลิก<input type="checkbox" id="elo-status-update" name="elo-status-update" <?php if ($row_update['elo_status']) {echo 'checked';} ?>><span class="lever"></span>ใช้งาน</label>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function(){
+        //refresh all select elements
+        $("#elo-type-update").selectpicker("refresh");
+        $("#major-id-update").selectpicker("refresh");
+    });
+</script>

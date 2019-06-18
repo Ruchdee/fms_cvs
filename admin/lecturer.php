@@ -581,7 +581,7 @@
                     text: "คำเตือน เมื่อข้อมูลถูกลบ จะไม่สามารถเรียกคืนได้!",
                     type: "warning",
                     showCancelButton: true,
-                    confirmButtonClass: "btn-danger",
+                    confirmButtonColor: '#DD6B55',
                     confirmButtonText: "ยืนยัน, ลบเดี่ยวนี้",
                     cancelButtonText: "ยกเลิก",
                     closeOnConfirm: false
@@ -590,6 +590,21 @@
                     $(location).attr("href", "lecturer_op.php?action=d&lecturer_id=" + lecturer_id);
                     swal("Deleted!", "ลบข้อมูลเรียบร้อยแล้ว", "success");
                 });
+                /* swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $(location).attr("href", "lecturer_op.php?action=d&lecturer_id=" + lecturer_id);
+                        swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                    });
+                }
+                }); */
             });
         });
     </script>

@@ -36,11 +36,11 @@
 
     //u = update
     if (isset($_GET['action']) && $_GET['action'] == 'u') {
-        $major->major_id = $_POST['major-id'];
-        $major->major_name_th = $_POST['major-name-th'];
-        $major->major_name_en = $_POST['major-name-en'];
-        $major->dept_id = $_POST['dept-id'];
-        if (isset($_POST['major-status'])) {
+        $major->major_id = $_POST['major-id-update'];
+        $major->major_name_th = $_POST['major-name-th-update'];
+        $major->major_name_en = $_POST['major-name-en-update'];
+        $major->dept_id = $_POST['dept-id-update'];
+        if (isset($_POST['major-status-update'])) {
             $major->major_status = 1;
         } else {
             $major->major_status = 0;

@@ -11,6 +11,8 @@ class Lecturer {
     public $lecturer_name_th;
     public $lecturer_name_en;
     public $major_id;
+    public $lecturer_email;
+    public $lecturer_remark;
     public $lecturer_status;
     public $created_by;
     public $created_date;
@@ -41,9 +43,9 @@ class Lecturer {
     //add new record
     function create(){
         //write statement
-        $stmt = mysqli_prepare($this->conn, "INSERT INTO " . $this->table_name . " (lecturer_id, title_th, title_en, lecturer_name_th, lecturer_name_en, major_id, lecturer_status, created_by, created_date) VALUES (?,?,?,?,?,?,?,?,?)");
+        $stmt = mysqli_prepare($this->conn, "INSERT INTO " . $this->table_name . " (lecturer_id, title_th, title_en, lecturer_name_th, lecturer_name_en, major_id, lecturer_email, lecturer_remark, lecturer_status, created_by, created_date) VALUES (?,?,?,?,?,?,?,?,?)");
         //bind parameters
-        mysqli_stmt_bind_param($stmt, 'sssssssss', $this->lecturer_id, $this->title_th, $this->title_en, $this->lecturer_name_th, $this->lecturer_name_en, $this->major_id, $this->lecturer_status, $this->created_by, $this->created_date);
+        mysqli_stmt_bind_param($stmt, 'sssssssss', $this->lecturer_id, $this->title_th, $this->title_en, $this->lecturer_name_th, $this->lecturer_name_en, $this->major_id, $this->lecturer_email, $this->lecturer_remark, $this->lecturer_status, $this->created_by, $this->created_date);
 
         /* execute prepared statement */
         if (mysqli_stmt_execute($stmt)) {
@@ -53,10 +55,37 @@ class Lecturer {
         }
     }  //create()
 
-    
+    //update record
+    function update(){
+        $query = "UPDATE " . $this->table_name . " SET title_th = ?, title_en =?, lecturer_name_th = ?, lecturer_name_en = ?, major_id = ?, lecturer_email = ?, lecturer_remark = ?, lecturer_status = ? WHERE lecturer_id = ?";
+        // statement
+        $stmt = mysqli_prepare($this->conn, $query);
+        // bind parameters
+        mysqli_stmt_bind_param($stmt, 'sssssssss', $this->title_th, $this->title_en, $this->lecturer_name_th, $this->lecturer_name_en, $this->major_id, $this->lecturer_email, $this->lecturer_remark, $this->lecturer_status, $this->lecturer_id);
 
+        /* execute prepared statement */
+        if (mysqli_stmt_execute($stmt)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+    //delete record
+    function delete(){
+        $query = "DELETE FROM " . $this->table_name . " WHERE lecturer_id = ?";
+        // statement
+        $stmt = mysqli_prepare($this->conn, $query);
+        // bind parameter
+        mysqli_stmt_bind_param($stmt, 's', $this->lecturer_id);
 
+        /* execute prepared statement */
+        if (mysqli_stmt_execute($stmt)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 ?>

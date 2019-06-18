@@ -38,7 +38,24 @@
 
     //u = update
     if (isset($_GET['action']) && $_GET['action'] == 'u') {
+        $lecturer->lecturer_id = $_POST['lecturer-id-update'];
+        $lecturer->title_th = $_POST['title-th-update'];
+        $lecturer->title_en = $_POST['title-en-update'];
+        $lecturer->lecturer_name_th = $_POST['lecturer-name-th-update'];
+        $lecturer->lecturer_name_en = $_POST['lecturer-name-en-update'];
+        $lecturer->major_id = $_POST['major-id-update'];
+        if (isset($_POST['lecturer-status-update'])) {
+            $lecturer->lecturer_status = 1;
+        } else {
+            $lecturer->lecturer_status = 0;
+        }
 
+        //update
+        if ($lecturer->update()) {
+            header("Location: lecturer.php");
+        } else {
+            header("Location: lecturer.php?err=เพิ่มข้อมูลผิดพลาด");
+        }
     }
 
     //d = delete
@@ -46,7 +63,7 @@
         if (isset($_GET['lecturer_id'])) {
             $lecturer->lecturer_id = $_GET['lecturer_id'];
             //delete
-            if ($course->delete()) {
+            if ($lecturer->delete()) {
                 header("Location: lecturer.php");
             } else {
                 header("Location: lecturer.php?err=ลบข้อมูลผิดพลาด");
