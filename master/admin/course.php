@@ -143,7 +143,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#" data-toggle="modal" data-target="#defaultModal">เพิ่มข้อมูล</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">add_circle_outline</i> เพิ่มข้อมูล</a></li>
+                                        <li><a href="#"><i class="material-icons">cached</i> อัพเดทฐานข้อมูล</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -187,7 +188,7 @@
                                                     echo $row_major['major_name_th'];
                                                 ?>
                                             </td>
-                                            <td class="text-center"><?php echo $row['course_credit']; ?></td>
+                                            <td><?php echo $row['course_credit']; ?></td>
                                             <td class="text-center">
                                                 <?php if ($row['course_status']) {
                                                         echo "ใช้งาน";

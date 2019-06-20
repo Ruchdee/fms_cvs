@@ -143,7 +143,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#" data-toggle="modal" data-target="#defaultModal">เพิ่มข้อมูล</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">add_circle_outline</i> เพิ่มข้อมูล</a></li>
+                                        <li><a href="#"><i class="material-icons">cached</i> อัพเดทฐานข้อมูล</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -167,7 +168,7 @@
                                             <td class="text-center"><?php echo $row['major_id']; ?></td>
                                             <td><?php echo $row['major_name_th']; ?></td>
                                             <td><?php echo $row['major_name_en']; ?></td>
-                                            <td class="text-center">
+                                            <td>
                                                 <?php
                                                     $department->dept_id = $row['dept_id'];
                                                     $result_dept = $department->readone();

@@ -145,7 +145,8 @@
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="#" data-toggle="modal" data-target="#defaultModal">เพิ่มข้อมูล</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">add_circle_outline</i> เพิ่มข้อมูล</a></li>
+                                        <li><a href="#"><i class="material-icons">cached</i> อัพเดทฐานข้อมูล</a></li>
                                     </ul>
                                 </li>
                             </ul>
